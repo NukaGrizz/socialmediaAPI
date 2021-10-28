@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
-    userName: {
+    username: {
       type: String,
       unique: true,
       required: true,
@@ -15,11 +15,6 @@ const UserSchema = new Schema(
       unique: true,
       validate: [validateEmail, 'Please fill a valid email address'],
       match: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please fill a valid email address']
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
     },
     thoughts: [
       {

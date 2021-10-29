@@ -13,8 +13,7 @@ const UserSchema = new Schema(
       type: String,
       required: 'Email address is required',
       unique: true,
-      validate: [validateEmail, 'Please fill a valid email address'],
-      match: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please fill a valid email address']
+      validate: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please fill in valid email address']
     },
     thoughts: [
       {
@@ -22,7 +21,7 @@ const UserSchema = new Schema(
         ref: 'Thought'
       }
     ],
-    freinds: [
+    friends: [
       {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -39,11 +38,8 @@ const UserSchema = new Schema(
   }
 );
 
-UserSchema.virtual('freindCount').get(function() {
-  return this.freinds.reduce(
-    (total, freind) => total + freind,
-    0
-  );
+UserSchema.virtual('friendCount').get(function() {
+  return this.friends.length;
 });
 
 // get total count of comments and replies on retrieval

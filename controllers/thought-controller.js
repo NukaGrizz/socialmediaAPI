@@ -1,14 +1,14 @@
-const { Comment, Pizza } = require('../models');
+const { Thought, User } = require('../models');
 
-const commentController = {
+const thoughtController = {
   // add comment to pizza
-  addComment({ params, body }, res) {
+  addThought({ params, body }, res) {
     console.log(params);
-    Comment.create(body)
+    Thought.create(body)
       .then(({ _id }) => {
-        return Pizza.findOneAndUpdate(
-          { _id: params.pizzaId },
-          { $push: { comments: _id } },
+        return User.findOneAndUpdate(
+          { _id: params.userId },
+          { $push: { thoughts: _id } },
           { new: true }
         );
       })

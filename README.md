@@ -18,6 +18,10 @@
   ## Usage
   To use this program complete the istallation instructions. Then from the root directory run 'npm start' in the command line to run the program.
   
+  ## Example Video
+  
+  https://drive.google.com/file/d/1SAp9ZBEi0DvpabJ4RtY_AUjK58fGxRFv/view?usp=sharing
+  
   ## ScreenShot
   
   ![alt text](./assets/images/Screenshot.png)
